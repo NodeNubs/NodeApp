@@ -3,11 +3,26 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
-    title= title
+    title= Ping
     block css
       link(rel='stylesheet', href='/css/style.css')
+      link(rel="stylesheet" href='/css/bootstrap.min.css')
     block js
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
   body
+    div(class="navbar navbar-default navbar-fixed-top")
+      div(class="container")
+        div(class="navbar-header")
+          a(href="#/" class="navbar-brand") Pirates R Us
+        div(class="navbar-navbar" id="navbar-main")
+          ul(class="nav navbar-nav")
+            li
+              a(href="#/") Home
+          ul(class="nav navbar-nav navbar-right")
+            li
+              a(href="/login") Login
+            li
+              a(href="/register") Register
+
     block content

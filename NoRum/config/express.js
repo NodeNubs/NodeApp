@@ -33,11 +33,11 @@ module.exports = function(app, config) {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use(function (req, res, next) {
+/*  app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
-  });
+  }); shows the user a "friendly msg on serv err" for now keep it comented (easyer debugging..)*/
 
   if(app.get('env') === 'development'){
     app.use(function (err, req, res, next) {

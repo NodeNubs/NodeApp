@@ -2,11 +2,11 @@
 var encryption = require('../../utils/encryption'),
   users = require('../../data/db');//.users etc
 
-var CONTROLLER_NAME = 'users';
+var PATH_PREFIX = 'users';
 
 module.exports = {
   getRegister: function(req, res, next) {
-    res.render(CONTROLLER_NAME + '/register')
+    res.render(PATH_PREFIX  + '/register-view')
   },
   postRegister: function(req, res, next) {
     var newUserData = req.body;
@@ -37,6 +37,6 @@ module.exports = {
     }
   },
   getLogin: function(req, res, next) {
-    res.render(CONTROLLER_NAME + '/login');
+    res.render(PATH_PREFIX  + '/login-view');
   }
 };
