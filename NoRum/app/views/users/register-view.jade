@@ -1,3 +1,24 @@
 extends ../layout
 block content
   h1 Register
+  div(class="row")
+    div(class="col-md-6 col-md-offset-3")
+      form(class="form-horizontal" name="registerForm")
+        fieldset
+          legend Register User
+          div(class="form-group")
+            label(for="inputEmail" class="col-lg-2 control-label") Email
+            div(class="col-lg-10")
+              input(type="text" ng-model="user.email" class="form-control" id="inputEmail" required="required" placeholder="Email")
+          div(class="form-group")
+            label(for="inputEmail" class="col-lg-2 control-label") User Name
+            div(class="col-lg-10")
+              input(type="text" ng-model="user.email" class="form-control" id="inputEmail" required="required" placeholder="User Name")
+          div(class="form-group")
+            label(for="inputEmail" class="col-lg-2 control-label") Password
+            div(class="col-lg-10")
+              input(type="text" ng-model="user.email" class="form-control" id="inputEmail" required="required" placeholder="Password")
+          div(class="form-group")
+            div(class="col-lg-10 col-lg-offset-2")
+              button(ng-click="vm.register(user, registerForm)" ng-disabled="registerForm.$invalid || user.password != user.confirmPassword" class="btn btn-primary") Submit
+
