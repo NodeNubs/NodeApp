@@ -1,8 +1,8 @@
 'use strict';
 var express = require('express');
-var glob = require('glob');
+//var glob = require('glob'); // unused
 
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -37,7 +37,7 @@ module.exports = function(app, config) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
-  }); shows the user a "friendly msg on serv err" for now keep it comented (easyer debugging..)*/
+  }); shows the user a "friendly msg on serv err" for now keep it comented (easier debugging...)*/
 
   if(app.get('env') === 'development'){
     app.use(function (err, req, res, next) {

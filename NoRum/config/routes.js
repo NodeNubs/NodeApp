@@ -9,5 +9,5 @@ module.exports = function(app) {
   app.get('/register', controllers.UserController.getRegister);
   app.post('/login', auth.login);
   app.post('/logout', auth.logout);
-
+  app.get('/addTorrent', controllers.TorrentController.getAddTorrent);
 };

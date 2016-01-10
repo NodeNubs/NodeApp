@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-  UserModel = require('../data/models/User');
+  UserModel = require('../data/models/User'),
+  TorrentModel = require('../data/models/Torrent');
 
 module.exports = function (config) {
   mongoose.connect(config.db);
@@ -11,7 +12,7 @@ module.exports = function (config) {
       return;
     }
 
-    console.log('Database up and running...')
+    console.log('Database up and running...');
   });
 
   db.on('error', function (err) {
