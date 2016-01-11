@@ -38,5 +38,8 @@ module.exports = {
   },
   getLogin: function(req, res, next) {
     res.render(PATH_PREFIX  + '/login-view');
+  },
+  getManager: function(req, res, next){
+    res.render(PATH_PREFIX + '/management-view', {'name' : 'John'});
   }
 };
