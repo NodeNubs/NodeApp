@@ -1,0 +1,23 @@
+extends ../layout
+block content
+  h1 User Manager
+  div(class="row")
+    div(class="col-md-6 col-md-offset-3")
+      form(class="form-horizontal" name="registerForm" method="post")
+        fieldset
+          legend Profile Info
+          div(class="form-group")
+            label(for="inputEmail" class="col-lg-2 control-label") Your nickname
+            div(class="col-lg-10")
+              input(type="text" class="form-control" id="inputEmail" required="required" value="#{name}")
+          div(class="form-group")
+            label(for="inputEmail" class="col-lg-2 control-label") Write your old password
+            div(class="col-lg-10")
+              input(type="password" class="form-control" id="inputEmail" required="required" placeholder="Old password")
+          div(class="form-group")
+            label(for="inputEmail" class="col-lg-2 control-label") Write a new password
+            div(class="col-lg-10")
+              input(type="password" class="form-control" id="inputEmail" required="required" placeholder="New password")
+          div(class="form-group")
+            div(class="col-lg-10 col-lg-offset-2")
+              input(type="submit" class="btn btn-primary" value="Login")
