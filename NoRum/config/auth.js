@@ -7,13 +7,16 @@ module.exports = {
       if (err) {
         return next(err);
       }
+
       if (!user) {
         res.send({success: false})
       }
 
       req.logIn(user, function(err) {
-        if (err) return next(err);
-        res.send({success: true, user: user});
+        if (err){
+          return next(err);
+        }
+        res.redirect('/');
       })
     });
 
@@ -21,12 +24,11 @@ module.exports = {
   },
   logout: function(req, res, next) {
     req.logout();
-    res.end();
+    res.redirect('/');
   },
   isAuthenticated: function(req, res, next) {
     if (!req.isAuthenticated()) {
-      res.status(403);
-      res.end();
+      res.redirect('/login');
     }
     else {
       next();

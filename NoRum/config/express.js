@@ -7,10 +7,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
+var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
 
-module.exports = function(app, config) {
+module.exports = function (app, config) {
   var env = process.env.NODE_ENV || 'development';
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env == 'development';
@@ -25,6 +26,7 @@ module.exports = function(app, config) {
     extended: true
   }));
   app.use(cookieParser());
+  app.use(session({secret: 'magic unicorns', resave: true, saveUninitialized: true}));
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
@@ -32,14 +34,23 @@ module.exports = function(app, config) {
   //User management system
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(function (req, res, next) {
+    if (req.session.error) {
+      app.locals.errorMessage = req.session.error;
+    }
+    else {
+      app.locals.errorMessage = undefined;
+    }
 
-/*  app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  }); shows the user a "friendly msg on serv err" for now keep it comented (easier debugging...)*/
+    next();
+  });
+  /*  app.use(function (req, res, next) {
+   var err = new Error('Not Found');
+   err.status = 404;
+   next(err);
+   }); shows the user a "friendly msg on serv err" for now keep it comented (easier debugging...)*/
 
-  if(app.get('env') === 'development'){
+  if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
       res.status(err.status || 500);
       res.render('error', {
@@ -52,11 +63,11 @@ module.exports = function(app, config) {
 
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-      res.render('error', {
-        message: err.message,
-        error: {},
-        title: 'error'
-      });
+    res.render('error', {
+      message: err.message,
+      error: {},
+      title: 'error'
+    });
   });
 
 };
