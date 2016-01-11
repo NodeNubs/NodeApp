@@ -4,6 +4,7 @@ var auth = require('./auth'),
 
 module.exports = function(app) {
   app.get('/', controllers.HomeController.get);
+  app.get('/about', controllers.HomeController.getAbout);
 
   app.get('/login', controllers.UserController.getLogin);
   app.get('/register', controllers.UserController.getRegister);
