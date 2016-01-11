@@ -13,4 +13,7 @@ module.exports = function(app) {
   app.post('/login', auth.login);
   app.post('/logout', auth.logout);
   app.get('/addTorrent', controllers.TorrentController.getAddTorrent);
+  app.get('/categories', controllers.TorrentController.getCategories);
+  app.get('/managetorrents', controllers.TorrentController.getManageTorrents);
+  app.get('/alltorrents', controllers.TorrentController.getAllTorrents);
 };
