@@ -1,6 +1,6 @@
 'use strict';
 var encryption = require('../../utils/encryption'),
-  users = require('../../data/db');//.users etc
+  users = require('../../data/users');
 
 var PATH_PREFIX = 'users';
 
@@ -9,7 +9,7 @@ module.exports = {
     res.render(PATH_PREFIX  + '/register-view')
   },
   postRegister: function(req, res, next) {
-    var newUserData = req.body;
+    var newUserData = req.body.user;
 
     if (newUserData.password != newUserData.confirmPassword) {
       req.session.error = 'Passwords do not match!';
