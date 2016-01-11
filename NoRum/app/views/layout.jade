@@ -26,18 +26,20 @@ html(lang='en')
             li
               a(href="/about") Who are we?
           ul(class="nav navbar-nav navbar-right")
-            li
-              a(href="/addTorrent") Add Torrent
-            li
-              a(href="/managetorrents") Manage Torrents
-            li
-              a(href="/manager") Profile
-            li
-              a(href="/logout") Logout
-            li
-              a(href="/login") Login
-            li
-              a(href="/register") Register
+            if(loggedUser)
+              li
+                a(href="/addTorrent") Add Torrent
+              li
+                a(href="/managetorrents") Manage Torrents
+              li
+                a(href="/manager") #{loggedUser.username}
+              li
+                a(href="/logout") Logout
+            else
+              li
+                a(href="/login") Login
+              li
+                a(href="/register") Register
 
     .container
       if(errorMessage)

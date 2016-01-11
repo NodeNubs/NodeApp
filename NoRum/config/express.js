@@ -1,7 +1,6 @@
 'use strict';
 var express = require('express');
 //var glob = require('glob'); // unused
-
 //var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -37,6 +36,7 @@ module.exports = function (app, config) {
   app.use(function (req, res, next) {
     if (req.session.error) {
       app.locals.errorMessage = req.session.error;
+      req.session.error = undefined;
     }
     else {
       app.locals.errorMessage = undefined;

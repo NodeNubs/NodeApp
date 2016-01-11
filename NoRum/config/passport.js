@@ -10,14 +10,14 @@ module.exports = function() {
         console.log('Error loading user: ' + err);
         return;
       }
-      console.log(user);
+
       if (user && user.authenticate(password)) {
         return done(null, user);
       }
       else {
         return done(null, false);
       }
-    });
+    })
   }));
 
   passport.serializeUser(function(user, done) {
@@ -39,6 +39,6 @@ module.exports = function() {
       else {
         return done(null, false);
       }
-    });
+    })
   });
 };

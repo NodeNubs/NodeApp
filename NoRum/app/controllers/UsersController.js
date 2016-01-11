@@ -21,7 +21,9 @@ module.exports = {
       users.create(newUserData, function (err, user) {
         if (err) {
           console.log('Failed to register new user: ' + err);
-          return;
+          req.session.error = "User name is taken";
+          res.redirect('/register');
+          return
         }
 
         req.logIn(user, function (err) {
