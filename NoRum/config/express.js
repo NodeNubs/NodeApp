@@ -33,6 +33,7 @@ module.exports = function (app, config) {
   //User management system
   app.use(passport.initialize());
   app.use(passport.session());
+
   app.use(function (req, res, next) {
     if (req.session.error) {
       app.locals.errorMessage = req.session.error;
