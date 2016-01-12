@@ -1,6 +1,6 @@
 'use strict';
 var passport = require('passport'),
-  LocalPassport = require('passport-local'),
+  LocalPassport = require('passport-local').Strategy,
   User = require('mongoose').model('User');
 
 module.exports = function() {
