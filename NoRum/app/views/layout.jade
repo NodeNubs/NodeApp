@@ -43,6 +43,9 @@ html(lang='en')
 
     .container
       if(errorMessage)
-        div #{errorMessage}
+        div(class="btn btn-danger pull-right") #{errorMessage}
+
+      if(successMessage)
+        div(class="btn btn-success pull-right") #{successMessage}
 
       block content

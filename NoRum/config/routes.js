@@ -19,9 +19,6 @@ module.exports = function(app) {
   app.get('/managetorrents', controllers.TorrentController.getManageTorrents);
   app.get('/alltorrents', controllers.TorrentController.getAllTorrents);
 
-  app.get('/', function(req, res) {
-    res.render('index', {loggedUser: req.user});
-  });
 
   app.get('*', function(req, res) {
     res.render('index', {loggedUser: req.user});
