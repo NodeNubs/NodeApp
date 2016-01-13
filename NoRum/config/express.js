@@ -34,20 +34,6 @@ module.exports = function (app, config) {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use(function (req, res, next) {
-    if (req.session.error || req.session.success) {
-      app.locals.successMessage = req.session.success;
-      app.locals.errorMessage = req.session.error;
-      req.session.error = undefined;
-      req.session.success = undefined
-    }
-    else {
-      app.locals.errorMessage = undefined;
-      app.locals.successMessage = undefined
-    }
-
-    next();
-  });
   /*  app.use(function (req, res, next) {
    var err = new Error('Not Found');
    err.status = 404;

@@ -25,10 +25,9 @@ module.exports = {
           console.log('Failed to register new user: ' + err);
           req.session.error = 'User name is taken';
           res.redirect('/register');
-          return
+          return;
         }
 
-        req.session.success = 'Registration successful!';
         req.logIn(user, function (err) {
           if (err) {
             res.status(400);

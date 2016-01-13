@@ -22,6 +22,8 @@ module.exports = function(app) {
 
   app.get('/addTorrent',auth.isAuthenticated, controllers.TorrentController.getAddTorrent);
   app.get('/managetorrents', auth.isAuthenticated, controllers.TorrentController.getManageTorrents);
+  app.post('/addTorrent', auth.isAuthenticated, controllers.TorrentController.postTorrent);
+
   app.get('/categories', controllers.TorrentController.getCategories);
   app.get('/alltorrents', controllers.TorrentController.getAllTorrents);
 

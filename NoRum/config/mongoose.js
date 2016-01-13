@@ -20,4 +20,5 @@ module.exports = function (config) {
   });
 
   UserModel.init();
+  TorrentModel.init();
 };
