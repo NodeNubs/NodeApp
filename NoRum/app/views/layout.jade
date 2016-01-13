@@ -26,13 +26,13 @@ html(lang='en')
             li
               a(href="/about") Who are we?
           ul(class="nav navbar-nav navbar-right")
-            if(loggedUser)
+            if(authService.isAuthenticated)
               li
                 a(href="/addTorrent") Add Torrent
               li
                 a(href="/managetorrents") Manage Torrents
               li
-                a(href="/profile") #{loggedUser.username}
+                a(href="/manager") #{authService.user.username}
               li
                 a(href="/logout") Logout
             else
@@ -40,6 +40,8 @@ html(lang='en')
                 a(href="/login") Login
               li
                 a(href="/register") Register
+              li
+                a(href="/administration")
 
     .container
       if(errorMessage)

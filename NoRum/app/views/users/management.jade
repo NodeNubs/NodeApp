@@ -9,7 +9,7 @@ block content
           div(class="form-group")
             label(for="inputEmail" class="col-lg-2 control-label") Your nickname
             div(class="col-lg-10")
-              input(type="text" class="form-control" id="inputEmail" required="required" value="#{name}")
+              input(type="text" class="form-control" id="inputEmail" required="required" value="#{authService.user.username}")
           div(class="form-group")
             label(for="inputEmail" class="col-lg-2 control-label") Write your old password
             div(class="col-lg-10")

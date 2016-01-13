@@ -8,6 +8,9 @@ module.exports = {
   update: function (name, callback) {
     User.findOne({ username: name }, callback);
   },
+  delete: function (name, callback) {
+    User.remove({username: name}, callback);
+  },
   getAll: function (callback) {
     User.find(callback);
   }

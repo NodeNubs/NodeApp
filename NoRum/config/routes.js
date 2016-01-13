@@ -9,20 +9,21 @@ module.exports = function(app) {
   app.get('/login', controllers.UserController.getLogin);
   app.get('/register', controllers.UserController.getRegister);
   app.post('/register', controllers.UserController.postRegister);
-  app.get('/manager', controllers.UserController.getManager);
+  app.get('/manager', auth.isAuthenticated, controllers.UserController.getManager);
+
+  app.get('/administration', controllers.AdminController.getAdministration);
+  app.get('/administration/del', controllers.AdminController.postDeleteUser);
 
   app.post('/login', auth.login);
   app.get('/logout', auth.logout);
 
   app.get('/profile', controllers.ProfileController.getProfileInfo)
 
-  app.get('/addTorrent', controllers.TorrentController.getAddTorrent);
+  app.get('/addTorrent',auth.isAuthenticated, controllers.TorrentController.getAddTorrent);
+  app.get('/managetorrents', auth.isAuthenticated, controllers.TorrentController.getManageTorrents);
   app.get('/categories', controllers.TorrentController.getCategories);
-  app.get('/managetorrents', controllers.TorrentController.getManageTorrents);
   app.get('/alltorrents', controllers.TorrentController.getAllTorrents);
 
 
-  app.get('*', function(req, res) {
-    res.render('index', {loggedUser: req.user});
-  });
+  app.get('/', controllers.HomeController.get);
 };

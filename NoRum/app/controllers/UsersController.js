@@ -6,7 +6,7 @@ var PATH_PREFIX = 'users';
 
 module.exports = {
   getRegister: function (req, res, next) {
-    res.render(PATH_PREFIX + '/register-view')
+    res.render(PATH_PREFIX + '/register-view', {authService: req.authService})
   },
   postRegister: function (req, res, next) {
     var newUserData = req.body.user;
@@ -40,9 +40,17 @@ module.exports = {
     }
   },
   getLogin: function (req, res, next) {
-    res.render(PATH_PREFIX + '/login-view');
+    res.render(PATH_PREFIX + '/login-view', {authService: req.authService});
   },
   getManager: function (req, res, next) {
-    res.render(PATH_PREFIX + '/management-view', {'name': 'John'});
+    res.render(PATH_PREFIX + '/management', {authService: req.authService});
+  },
+  getAdministration: function (req, res, next) {
+    users.getAll(function(err, users){
+      if(err){
+        throw err;
+      }
+      res.render(PATH_PREFIX + '/administration', {data: users});
+    });
   }
 };

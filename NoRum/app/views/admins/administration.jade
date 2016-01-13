@@ -1,0 +1,17 @@
+extends ../layout
+block content
+  h1 Users
+  div(class="row")
+  each user in data
+    div(class="wrapper")
+      div(class="col-md-3")
+        strong #{user.username}
+      div(class="col-md-3")
+        strong #{user.email}
+      div(class="col-md-3")
+        p #{user.about}
+      div(class="col-md-3")
+        input(type="submit" method="post" action="/administration/#{user.username}"  value="Delete user" class="btn btn-danger")
+      div(class="col-md-12")
+      hr
+
