@@ -10,6 +10,7 @@ module.exports = function(app) {
   app.get('/register', controllers.UserController.getRegister);
   app.post('/register', controllers.UserController.postRegister);
   app.get('/manager', auth.isAuthenticated, controllers.UserController.getManager);
+  app.post('/manager', auth.isAuthenticated, controllers.UserController.putUpdate);
 
   app.get('/administration', controllers.AdminController.getAdministration);
   app.get('/administration/del', controllers.AdminController.postDeleteUser);

@@ -18,6 +18,7 @@ module.exports = {
     else {
       newUserData.salt = encryption.generateSalt();
       newUserData.password = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
+      newUserData.about = 'Newbie';
       users.create(newUserData, function (err, user) {
         if (err) {
           console.log('Failed to register new user: ' + err);
@@ -45,12 +46,17 @@ module.exports = {
   getManager: function (req, res, next) {
     res.render(PATH_PREFIX + '/management', {authService: req.authService});
   },
-  getAdministration: function (req, res, next) {
-    users.getAll(function(err, users){
+  putUpdate: function(req, res, next){
+    var updateUserData = req.body;
+    users.update(req.authService.user.username, updateUserData, function(err, result){
       if(err){
-        throw err;
+        console.log(err);
       }
-      res.render(PATH_PREFIX + '/administration', {data: users});
-    });
+      else {
+        console.log(result);
+        res.redirect('/manager');
+      }
+    })
   }
-};
+}
+;
