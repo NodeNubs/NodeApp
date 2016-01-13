@@ -9,7 +9,8 @@ module.exports = {
       }
 
       if (!user) {
-        res.send({success: false})
+        req.session.error = 'User name or password did not match';
+        res.redirect('/login');
       }
 
       req.logIn(user, function(err) {
