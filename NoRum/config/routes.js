@@ -13,12 +13,12 @@ module.exports = function(app) {
   app.post('/manager', auth.isAuthenticated, controllers.UserController.putUpdate);
 
   app.get('/administration', controllers.AdminController.getAdministration);
-  app.get('/administration/del', controllers.AdminController.postDeleteUser);
+  app.post('/administration/:username', controllers.AdminController.postDeleteUser);
 
   app.post('/login', auth.login);
   app.get('/logout', auth.logout);
 
-  app.get('/profile', controllers.ProfileController.getProfileInfo)
+  app.get('/profile', controllers.ProfileController.getProfileInfo);
 
   app.get('/addTorrent',auth.isAuthenticated, controllers.TorrentController.getAddTorrent);
   app.get('/managetorrents', auth.isAuthenticated, controllers.TorrentController.getManageTorrents);

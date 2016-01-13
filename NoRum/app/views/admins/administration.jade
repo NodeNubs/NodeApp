@@ -11,7 +11,8 @@ block content
       div(class="col-md-3")
         p #{user.about}
       div(class="col-md-3")
-        input(type="submit" method="post" action="/administration/#{user.username}"  value="Delete user" class="btn btn-danger")
+       form(method="post" action="/administration/#{user.username}")
+        input(type="submit" value="Delete user" class="btn btn-danger")
       div(class="col-md-12")
       hr
 

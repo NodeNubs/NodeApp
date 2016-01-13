@@ -13,7 +13,8 @@ module.exports = {
     });
   },
   postDeleteUser: function (req, res, next) {
-    users.delete('Tea', function (err, res) {
+    var userName = req.body.username;
+    users.delete(userName, function (err, result) {
       if (err) {
         console.log(err);
         req.session.error = 'err';
