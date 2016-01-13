@@ -7,17 +7,17 @@ block content
         fieldset
           legend Profile Info
           div(class="form-group")
-            label(for="inputEmail" class="col-lg-2 control-label") Your nickname
+            label(for="nickname" class="col-lg-2 control-label") Your nickname
             div(class="col-lg-10")
-              input(type="text" class="form-control" id="inputEmail" required="required" value="#{authService.user.username}")
+              input(type="text" class="form-control" id="nickname" required="required" value="#{authService.user.username}")
           div(class="form-group")
-            label(for="inputEmail" class="col-lg-2 control-label") Write your old password
+            label(for="email" class="col-lg-2 control-label") Your email
             div(class="col-lg-10")
-              input(type="password" class="form-control" id="inputEmail" required="required" placeholder="Old password")
+              input(type="text" class="form-control" id="email" required="required" value="#{authService.user.email}")
           div(class="form-group")
-            label(for="inputEmail" class="col-lg-2 control-label") Write a new password
+            label(for="about" class="col-lg-2 control-label") Your AboutMe info 
             div(class="col-lg-10")
-              input(type="password" class="form-control" id="inputEmail" required="required" placeholder="New password")
+              input(type="text" class="form-control" id="about" required="required" value="#{authService.user.about}")
           div(class="form-group")
             div(class="col-lg-10 col-lg-offset-2")
-              input(type="submit" class="btn btn-primary" value="Login")
+              input(type="submit" class="btn btn-primary" value="Submit Canges")
