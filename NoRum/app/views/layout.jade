@@ -8,9 +8,11 @@ html(lang='en')
       link(rel='stylesheet', href='/css/style.css')
       link(rel="stylesheet" href='/css/bootstrap.min.css')
     block js
-      script(src='/components/angular.min.js')
+      script(src='/components/angular.js')
       script(src='/components/jquery.min.js')
-  body
+      script(src='/js/app/app.js')
+      script(src='/js/app/administration/AdminController.js')
+  body(ng-app="app")
     div(class="navbar navbar-default navbar-fixed-top")
       div(class="container")
         div(class="navbar-header")
@@ -44,7 +46,7 @@ html(lang='en')
               li
                 a(href="/administration") Manage
 
-    .container
+    div(class="container")
       if(errorMessage)
         div(class="btn btn-danger pull-right") #{errorMessage}
 

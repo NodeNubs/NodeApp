@@ -21,8 +21,8 @@ module.exports = {
       }
       else{
         req.session.success = 'User deleted';
-        res.redirect('/administration');
       }
+      res.redirect('/');
     });
   }
 };
