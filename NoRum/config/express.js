@@ -39,6 +39,20 @@ module.exports = function (app, config) {
    err.status = 404;
    next(err);
    }); shows the user a "friendly msg on serv err" for now keep it comented (easier debugging...)*/
+  app.use(function (req, res, next) {
+        if (req.session.error || req.session.success) {
+            app.locals.successMessage = req.session.success;
+            app.locals.errorMessage = req.session.error;
+            req.session.error = undefined;
+            req.session.success = undefined
+            }
+       else {
+            app.locals.errorMessage = undefined;
+            app.locals.successMessage = undefined
+            }
+
+          next();
+      });
 
   if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
