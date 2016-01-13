@@ -51,9 +51,10 @@ module.exports = {
     users.update(req.authService.user.username, updateUserData, function(err, result){
       if(err){
         console.log(err);
+        req.session.error = err;
       }
       else {
-        console.log(result);
+        req.session.success = 'Profile updated';
         res.redirect('/manager');
       }
     })
