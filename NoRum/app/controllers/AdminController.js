@@ -9,7 +9,7 @@ module.exports = {
       if (err) {
         throw err;
       }
-      res.render(PATH_PREFIX + '/administration', {data: users});
+      res.render(PATH_PREFIX + '/administration', {authService: req.authService, data: users});
     });
   },
   postDeleteUser: function (req, res, next) {

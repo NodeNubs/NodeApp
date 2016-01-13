@@ -9,6 +9,7 @@ module.exports.init = function() {
     about: { type: String, require: '{PATH} is required'},
     salt: String,
     password: String,
+    roles: [String]
   });
 
   userSchema.method({
