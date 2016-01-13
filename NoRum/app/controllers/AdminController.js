@@ -14,7 +14,7 @@ module.exports = {
   },
   postDeleteUser: function (req, res, next) {
     var userName = req.body.username;
-    users.delete(userName, function (err, result) {
+   users.delete(userName, function (err, result) {
       if (err) {
         console.log(err);
         req.session.error = 'err';
@@ -22,7 +22,8 @@ module.exports = {
       else{
         req.session.success = 'User deleted';
       }
-      res.redirect('/');
+     res.send({redirect: '/'});
+     res.end();
     });
   }
 };

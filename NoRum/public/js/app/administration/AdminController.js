@@ -4,8 +4,9 @@
   function AdminController($http) {
     var vm = this;
     vm.deleteUser = function(userName){
-      $http.post('/deleteUser', {username: userName});
-      return true;
+      $http.post('/deleteUser', {username: userName}).then(function(){
+        window.location = '/';
+      });
     };
     return vm;
   }
