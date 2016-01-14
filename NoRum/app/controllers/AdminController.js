@@ -16,11 +16,6 @@ module.exports = {
       if (err) {
         throw err;
       } else {
-        for(var i = 0; i< usersData.users.length; i++){
-          if(usersData.users[i].roles[0] === 'admin'){
-            usersData.users[i].youCaintTouchThis = true;
-          }
-        }
         res.render(PATH_PREFIX + '/administration', {authService: req.authService, data: usersData});
       }
 

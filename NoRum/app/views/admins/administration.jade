@@ -25,7 +25,8 @@ block content
             div(class="col-md-12")
             hr
 
-      - for(var i = 1; i <= data.total / data.pageSize; i++)
-      li
-        a.btn.btn-lf.btn-primary(href="/administration?page=#{i}&pageSize=#{data.pageSize}") #{i}
+      ul.list-unstyled.list-inline.text-center
+          - for(var i = 1; i <= data.total / data.pageSize; i++)
+          li
+            a.btn.btn-lf.btn-primary(href="/administration?page=#{i}&pageSize=#{data.pageSize}") #{i}
 

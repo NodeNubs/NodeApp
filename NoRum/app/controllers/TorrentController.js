@@ -43,7 +43,7 @@ module.exports = {
 
     form.parse(req, function(err, fields, files) {
       var newTorrent = fields;
-      newTorrent.dateAdded = new Date();
+      newTorrent.dateAdded = new Date('YYYY/MM/DD');
       newTorrent.size = files.file.size;
       fs.readFile(files.file.path, function(err, data) {
         if (err) {

@@ -1,7 +1,7 @@
 extends ../layout
 block content
 	h1 All torrents
-	table
+	table(class="CSSTableGenerator")
 		tr
 			th Name
 			th Description
@@ -18,8 +18,8 @@ block content
 				td #{torrent.category}
 				td
 					a(href="/downloadTorrent?name=#{torrent.name}") Download
-	ul
+	ul.list-unstyled.list-inline.text-center
 		each value, index in new Array(pages)
 			li
-				a(href="?page=#{index + 1}") #{index + 1}
+				a(class="btn btn-default pages" href="?page=#{index + 1}") #{index + 1}
 
