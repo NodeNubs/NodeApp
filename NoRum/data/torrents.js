@@ -11,6 +11,9 @@ module.exports = {
   findOne: function() {
     Torrent.findOne.apply(Torrent, arguments);
   },
+  getTorrentCount: function (callback) {
+    Torrent.count(callback);
+  },
   count: function() {
     Torrent.count.apply(Torrent, arguments);
   },
