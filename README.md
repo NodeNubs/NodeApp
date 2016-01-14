@@ -1,5 +1,5 @@
 ## Torrent site
-We have to make 15 different web pages with at least four tables
+
 
  1. Home page - some bs information about us/links to login/register, some table idk for all users or something.
  2. Login.
@@ -13,6 +13,22 @@ We have to make 15 different web pages with at least four tables
  10. Admin special page - list(table) of all the users/tors. Admins can delete users/tors.
  11. About us page.
 
-So... 10 pages so far 
+## Routes 
+### Users
+1. POST - /register registers user
+2. GET - /register returns register view
+3. POST - /login logs user
+4. GET - /login returns login view
+5. POST - /manager updates user info
+5. GET - /manager returns manager view
+
+### Admin
+1. GET - /administration - returns admin view
+2. POST - /administration - deletes user
+
+###Torrents
+1. GET - /addTorrent - returns torrent add view
+2. POST - /addTorrent - creates a new torrent in db
+3. GET - /allTorrents - returns all torrentts view 
 
 ###A Telerik Academy team proejct

@@ -17,6 +17,10 @@ a {
   font-size: 16px;
 }
 
+.specialHead{
+  font-size: 18px;
+
+}
 .CSSTableGenerator {
   margin:0px;padding:0px;
   width:100%;	box-shadow: 10px 10px 5px #888888;
