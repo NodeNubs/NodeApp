@@ -229,8 +229,12 @@ orleans.codegen.cs
 
 # RIA/Silverlight projects
 Generated_Code/
-# except build/, which is used as an MSBuild target.
-!**/public/components/
+
+!**/public/components/angular
+!**/public/components/angular.js
+!**/public/components/jquery.min
+!**/public/components/jquery.min.js
+
 
 
 # Backup & report files from converting an old project file
