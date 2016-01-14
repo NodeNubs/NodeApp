@@ -65,8 +65,9 @@ module.exports = {
       newUserData.salt = encryption.generateSalt();
       newUserData.password = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
       newUserData.about = 'Newbie';
-      newUserData.roles = ['user'];
 
+      newUserData.roles = ['user'];
+      
       users.create(newUserData, function (err, user) {
         if (err) {
           console.log('Failed to register new user: ' + err);
@@ -105,7 +106,7 @@ module.exports = {
       return;
       // TODO: what should happen when the update user is invalid?! reload, redirect ?
     }
-    
+
     users.update(req.authService.user.username, updateUserData, function (err, result) {
       if (err) {
         console.log(err);

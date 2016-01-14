@@ -1,18 +1,28 @@
 extends ../layout
 block content
   h1 Users
-  div(class="row" ng-controller="AdminController as vm")
-    each user in data
-      div(class="wrapper")
-        div(class="col-md-3")
-          strong #{user.username}
-        div(class="col-md-3")
-          strong #{user.email}
-        div(class="col-md-3")
-          p #{user.about}
-        div(class="col-md-3")
-          - var username = 'asd'
-          button(class="btn btn-danger" ng-click='vm.deleteUser("#{user.username}")') Delete User
-        div(class="col-md-12")
-        hr
+  div(ng-controller="AdminController as vm")
+    div(class="row")
+      div(class="col-md-3")
+        input(type="text" ng-model="params.username" placeholder="User Name")
+
+      a(href="/administration?username={{params.username}}" class="btn btn-primary") Search
+    div(class="row" id="allUsers" ng-controller="AdminController as vm")
+      each user in data.users
+          div(class="wrapper")
+            div(class="col-md-3")
+              strong #{user.username}
+            div(class="col-md-3")
+              strong #{user.email}
+            div(class="col-md-3")
+              p #{user.about}
+            div(class="col-md-3")
+              button(class="btn btn-danger" ng-click='vm.deleteUser("#{user.username}")') Delete User
+
+            div(class="col-md-12")
+            hr
+
+      - for(var i = 1; i <= data.total / data.pageSize; i++)
+      li
+        a.btn.btn-lf.btn-primary(href="/administration?page=#{i}&pageSize=#{data.pageSize}") #{i}
 

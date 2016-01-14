@@ -12,8 +12,8 @@ module.exports = function(app) {
   app.get('/manager', auth.isAuthenticated, controllers.UserController.getManager);
   app.post('/manager', auth.isAuthenticated, controllers.UserController.putUpdate);
 
-  app.get('/administration', controllers.AdminController.getAdministration);
-  app.post('/deleteUser', controllers.AdminController.postDeleteUser);
+  app.get('/administration', auth.isInRole('admin'), controllers.AdminController.getAdministration);
+  app.post('/deleteUser', auth.isInRole('admin'), controllers.AdminController.postDeleteUser);
 
   app.post('/login', auth.login);
   app.get('/logout', auth.logout);
