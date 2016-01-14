@@ -1,3 +1,25 @@
 extends ../layout
 block content
-  h1 All torrents
+	h1 All torrents
+	table
+		tr
+			th Name
+			th Description
+			th size
+			th Added
+			th Category
+			th File
+		each torrent in torrents
+			tr
+				td #{torrent.name}
+				td #{torrent.description}
+				td #{torrent.size}
+				td #{torrent.dateAdded}
+				td #{torrent.category}
+				td
+					a(href="/downloadTorrent?name=#{torrent.name}") Download
+	ul
+		each value, index in new Array(pages)
+			li
+				a(href="?page=#{index + 1}") #{index + 1}
+

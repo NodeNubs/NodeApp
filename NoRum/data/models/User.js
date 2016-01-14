@@ -23,5 +23,5 @@ module.exports.init = function() {
     }
   });
 
-  var User = mongoose.model('User', userSchema);
+  mongoose.model('User', userSchema);
 };

@@ -11,5 +11,5 @@ module.exports.init = function() {
     category: {type: String, enum: ['movie', 'music', 'game', 'other']},
   });
 
-  var Torrent = mongoose.model('Torrent', torrentSchema);
+  mongoose.model('Torrent', torrentSchema);
 };
