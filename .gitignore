@@ -229,6 +229,9 @@ orleans.codegen.cs
 
 # RIA/Silverlight projects
 Generated_Code/
+# except build/, which is used as an MSBuild target.
+!**/public/components/
+
 
 # Backup & report files from converting an old project file
 # to a newer Visual Studio version. Backup files are not needed,
