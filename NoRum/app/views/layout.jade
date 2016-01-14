@@ -42,7 +42,7 @@ html(lang='en')
                 a(href="/login") Login
               li
                 a(href="/register") Register
-            if(!authService.isAdmin)
+            if(authService.isAdmin)
               li
                 a(href="/administration") Manage
 
