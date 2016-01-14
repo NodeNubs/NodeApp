@@ -11,7 +11,8 @@ module.exports = {
     }
     var page = req.query.page || 1;
     var pageSize = req.query.pageSize || 5;
-    users.getAll(query, +page, +pageSize, function (err, usersData) {
+    var orderBy = req.query.orderBy || 'asc';
+    users.getAll(query, +page, +pageSize, orderBy, function (err, usersData) {
       if (err) {
         throw err;
       } else {

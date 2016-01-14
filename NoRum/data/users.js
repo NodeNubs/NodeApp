@@ -11,11 +11,11 @@ module.exports = {
   delete: function (name, callback) {
     User.remove({username: name}, callback);
   },
-  getAll: function (name, page, pageSize, callback) {
+  getAll: function (name, page, pageSize, orderBy, callback) {
     var name = name || {};
     User.find(name)
       .sort({
-        username: 'asc'
+        username: orderBy
       })
       .limit(pageSize)
       .skip((page - 1) * pageSize)

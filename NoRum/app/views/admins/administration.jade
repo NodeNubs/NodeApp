@@ -5,8 +5,11 @@ block content
     div(class="row")
       div(class="col-md-3")
         input(type="text" ng-model="params.username" placeholder="User Name")
-
-      a(href="/administration?username={{params.username}}" class="btn btn-primary") Search
+      div(class="col-md-3")
+        a(href="/administration?username={{params.username}}" class="btn btn-primary") Search
+      div(class="col-md-1")
+        a(href="/administration?orderBy=asc" class="btn btn-primary") A
+        a(href="/administration?orderBy=desc" class="btn btn-primary") Z
     div(class="row" id="allUsers" ng-controller="AdminController as vm")
       each user in data.users
           div(class="wrapper")
